@@ -8,9 +8,9 @@ from .datasets.text import register_text_instances
 # register plane reconstruction
 
 _PREDEFINED_SPLITS_NUCLEI = {
-    "pannuke_in_mscoco_format/train": ("pannuke_in_mscoco_format/train", "pannuke_in_mscoco_format/train/annotations.json"),
-    "pannuke_in_mscoco_format/val": ("pannuke_in_mscoco_format/val", "pannuke_in_mscoco_format/val/annotations.json"),
-    "pannuke_in_mscoco_format/test": ("pannuke_in_mscoco_format/test", "pannuke_in_mscoco_format/test/annotations.json")
+    "pannuke_in_mscoco_format_train": ("pannuke_in_mscoco_format/train", "pannuke_in_mscoco_format/train/annotations.json"),
+    "pannuke_in_mscoco_format_val": ("pannuke_in_mscoco_format/val", "pannuke_in_mscoco_format/val/annotations.json"),
+    "pannuke_in_mscoco_format_test": ("pannuke_in_mscoco_format/test", "pannuke_in_mscoco_format/test/annotations.json")
 }
  
 metadata_nuc = {
