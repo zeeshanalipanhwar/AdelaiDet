@@ -15,8 +15,8 @@ MODEL:
   CONDINST:
     MAX_PROPOSALS: 500
 DATASETS:
-  TRAIN: ("pannuke_in_mscoco_format/train",)
-  TEST: ("pannuke_in_mscoco_format/test",)
+  TRAIN: ("pannuke_in_mscoco_format_train",)
+  TEST: ("pannuke_in_mscoco_format_test",)
 SOLVER:
   IMS_PER_BATCH: 8
   BASE_LR: 0.001
