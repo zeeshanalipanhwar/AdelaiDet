@@ -7,6 +7,16 @@ from .datasets.text import register_text_instances
 
 # register plane reconstruction
 
+_PREDEFINED_SPLITS_NUCLEI = {
+    "pannuke_in_mscoco_format/train": ("pannuke_in_mscoco_format/train", "pannuke_in_mscoco_format/train/annotations.json"),
+    "pannuke_in_mscoco_format/val": ("pannuke_in_mscoco_format/val", "pannuke_in_mscoco_format/val/annotations.json"),
+    "pannuke_in_mscoco_format/test": ("pannuke_in_mscoco_format/test", "pannuke_in_mscoco_format/test/annotations.json")
+}
+ 
+metadata_nuc = {
+    "thing_classes": ['Neoplastic', 'Inflammatory', 'Connective', 'Dead', 'Epithelial']
+}
+
 _PREDEFINED_SPLITS_PIC = {
     "pic_person_train": ("pic/image/train", "pic/annotations/train_person.json"),
     "pic_person_val": ("pic/image/val", "pic/annotations/val_person.json"),
@@ -32,6 +42,14 @@ metadata_text = {
 
 
 def register_all_coco(root="datasets"):
+    for key, (image_root, json_file) in _PREDEFINED_SPLITS_NUCLEI.items():
+        # Assume pre-defined datasets live in `./datasets`.
+        register_coco_instances(
+            key,
+            metadata_nuc,
+            os.path.join(root, json_file) if "://" not in json_file else json_file,
+            os.path.join(root, image_root),
+        )
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_PIC.items():
         # Assume pre-defined datasets live in `./datasets`.
         register_coco_instances(
